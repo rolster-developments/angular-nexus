@@ -44,12 +44,12 @@ export type StoreSignals<T extends LiteralObject> = {
 export class Store<T extends LiteralObject> implements AbstractStore<T> {
   protected readonly _signals: StoreSignals<T>;
 
-  private readonly _state: State<T>;
+  private readonly state: State<T>;
 
-  private readonly _cache: Map<keyof T, Signal<any>> = new Map();
+  private readonly cache: Map<keyof T, Signal<any>> = new Map();
 
   constructor(value: T) {
-    this._state = new State(value);
+    this.state = new State(value);
 
     this._signals = new Proxy({} as StoreSignals<T>, {
       get: (_target, prop: string | symbol) => {
@@ -59,35 +59,39 @@ export class Store<T extends LiteralObject> implements AbstractStore<T> {
 
         const key = prop as keyof T;
 
-        if (!this._cache.has(key)) {
-          this._cache.set(
+        if (!this.cache.has(key)) {
+          this.cache.set(
             key,
-            computed(() => this._state.value()[key])
+            computed(() => this.state.value()[key])
           );
         }
 
-        return this._cache.get(key);
+        return this.cache.get(key);
       }
     });
   }
 
   public get value(): Signal<Readonly<T>> {
-    return this._state.value;
+    return this.state.value;
   }
 
   public get signals(): StoreSignals<T> {
     return this._signals;
   }
 
+  public setValue(value: Partial<T>): void {
+    this.state.reduce((state) => ({ ...state, ...value }));
+  }
+
   public reset(): void {
-    this._state.reset();
+    this.state.reset();
   }
 
   protected reduce(reducer: Reducer<T>): void {
-    this._state.reduce(reducer);
+    this.state.reduce(reducer);
   }
 
   protected select<V>(selector: Selector<T, V>): Signal<V> {
-    return this._state.select(selector);
+    return this.state.select(selector);
   }
 }
