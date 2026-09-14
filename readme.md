@@ -1,11 +1,11 @@
-# Rolster Angular Store
+# Rolster Angular Nexus
 
 Library that allows you to manage the status of Angular applications.
 
 ## Installation
 
 ```
-npm i @rolster/angular-store
+npm i @rolster/angular-nexus
 ```
 
 ## Configuration
@@ -29,7 +29,7 @@ straight into templates, `computed` and `effect` with zero boilerplate.
 ### Basic usage
 
 ```typescript
-import { Store } from '@rolster/angular-store';
+import { Store } from '@rolster/angular-nexus';
 
 interface CounterState {
   count: number;
@@ -78,7 +78,7 @@ methods build updates and derived (`computed`) signals:
 
 ```typescript
 import { Injectable } from '@angular/core';
-import { Store } from '@rolster/angular-store';
+import { Store } from '@rolster/angular-nexus';
 
 interface CartState {
   items: Product[];
@@ -106,7 +106,7 @@ export class CartStore extends Store<CartState> {
 
 ## Related
 
-- [`@rolster/reactive-store`](https://www.npmjs.com/package/@rolster/reactive-store)
+- [`@rolster/nexus`](https://www.npmjs.com/package/@rolster/nexus)
   — the same API for framework-agnostic projects (built on observables instead
   of Angular signals).
 
