@@ -24,7 +24,7 @@ A state container for Angular built on native [signals](https://angular.dev/guid
 The state is immutable (frozen) and exposed as read-only `Signal`s, so it plugs
 straight into templates, `computed` and `effect` with zero boilerplate.
 
-> Requires Angular 19+ (`@angular/core` is a peer dependency).
+> Requires Angular 20+ (`@angular/core` is a peer dependency).
 
 ### Basic usage
 

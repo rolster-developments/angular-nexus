@@ -1,6 +1,6 @@
 {
   "name": "@rolster/angular-nexus",
-  "version": "19.1.4",
+  "version": "22.0.0",
   "type": "module",
   "description": "Library that allows you to manage the status of Angular applications.",
   "license": "MIT",
@@ -37,7 +37,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@angular/core": "^17.3.12 || ^18.2.14 || ^19.2.25",
+    "@angular/core": "^20.0.0 || ^21.0.0 || ^22.0.0",
     "@rolster/commons": "^4.2.4"
   },
   "devDependencies": {
