@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@angular/core": "^20.0.0 || ^21.0.0 || ^22.0.0",
-    "@rolster/commons": "^4.2.4"
+    "@rolster/commons": "^4.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
